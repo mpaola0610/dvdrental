@@ -1,0 +1,81 @@
+--Question 1
+--Query for last_name that is equal to Wahlberg using the WHERE clause
+SELECT first_name, last_name
+from actor
+WHERE last_name LIKE 'Wahlberg';
+--Answer:2
+
+
+--Question 2
+--Query for data that shows customers who paid
+--An amount BETWEEN $3.99 and $5.99
+SELECT COUNT(amount)
+FROM payment
+WHERE amount BETWEEN 3.99 and 5.99;
+--Answer: 5607
+
+--Question 3
+--What film does the store have the most of 
+SELECT COUNT(film_id), film_id
+FROM inventory
+GROUP  BY film_id
+ORDER BY COUNT(film_id) DESC;
+--answer = 8
+
+
+--Question 4 
+SELECT last_name, COUNT(last_name)
+FROM customer
+WHERE last_name LIKE 'Will%'
+GROUP BY last_name;
+--answer:williams 1, williamson 1, willis, 1
+
+
+--Question 5
+SELECT staff_id, COUNT(staff_id)
+FROM rental
+GROUP BY staff_id;
+--answer:staff_id 1, 8040
+
+
+--Question 6
+SELECT COUNT (DISTINCT district)
+FROM address;
+--answer: 378 
+
+
+--Question 7
+SELECT film_id, COUNT(film_id)
+FROM film_actor
+GROUP BY(film_id)
+ORDER BY COUNT(film_id) DESC;
+--answer:film_id 508 has 15 actors
+
+--Question 8
+SELECT customer_id
+FROM store_id
+WHERE last_name LIKE 'es'
+
+--Question 9
+SELECT COUNT(rental_id), amount 
+FROM payment
+WHERE customer_id BETWEEN 380 and 430
+GROUP BY amount HAVING COUNT(rental_id) > 250;
+--answer:2.99=290,4.99=281,.99=269
+
+--Question 10
+SELECT rating, COUNT(film_id)
+FROM film
+GROUP BY rating
+ORDER BY COUNT(film_id) DESC;
+--ANSWER: categories = 5, pg-13 coming in at 223!
+
+
+
+
+
+
+
+
+
+
